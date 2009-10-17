@@ -492,6 +492,7 @@ ART.History = new Class({
 			this.select(hist);
 			this.fireEvent('back');
 		}
+		else this.setNavState();
 	},
 
 	next: function(){
@@ -500,6 +501,7 @@ ART.History = new Class({
 			this.select(hist);
 			this.fireEvent('forward');
 		}
+		else this.setNavState();
 	},
 
 	setEditable: function(editable) {
