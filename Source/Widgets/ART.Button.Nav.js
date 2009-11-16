@@ -71,12 +71,7 @@ ART.Button.Nav = {};
 		},
 
 		makeGlyph: function(){
-			var style = ART.Sheet.lookupStyle(this.getSelector());
-			this.paint.start({x: style.glyphLeft, y: style.glyphTop});
-			this.paint.shape(style.glyph, {x: style.glyphWidth, y: style.glyphHeight}, this.options.direction);
-			if (style.glyphStroke) this.paint.end({'stroke': true, 'stroke-width': style.glyphStroke, 'stroke-color': style.glyphColor});
-			else if (style.glyphFill) this.paint.end({fill: true, fillColor: style.glyphColor});
-			else this.paint.end();
+			this.parent(this.options.direction);
 		}
 
 	});

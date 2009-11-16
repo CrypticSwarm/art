@@ -195,7 +195,7 @@ ART.Button = new Class({
 	makeGlyph: function(){
 		var style = ART.Sheet.lookupStyle(this.getSelector());
 		this.paint.start({x: style.glyphLeft, y: style.glyphTop});
-		this.paint.shape(style.glyph, {x: style.glyphWidth, y: style.glyphHeight});
+		this.paint.shape.apply(this.paint, [style.glyph, {x: style.glyphWidth, y: style.glyphHeight}].extend(arguments));
 		if (style.glyphStroke) this.paint.end({'stroke': true, 'stroke-width': style.glyphStroke, 'stroke-color': style.glyphColor});
 		else if (style.glyphFill) this.paint.end({fill: true, fillColor: style.glyphColor});
 		else this.paint.end();
