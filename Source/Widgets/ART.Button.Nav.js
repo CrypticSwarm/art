@@ -19,6 +19,7 @@ var nav = {
 	'glyph-width': 8,
 	'glyph-top': 5,
 	'glyph-left': 9,
+	'glyph-params': 'left',
 	
 	'corner-radius-top-left': 4,
 	'corner-radius-top-right': 0,
@@ -29,11 +30,13 @@ var nav = {
 ART.Sheet.defineStyle('button.navLeft', nav);
 ART.Sheet.defineStyle('button.navUp', $merge(nav, {
 	'glyph-height': 8,
-	'glyph-width': 9
+	'glyph-width': 9,
+	'glyph-params': 'up'
 }));
 ART.Sheet.defineStyle('button.navDown', $merge(nav, {
 	'glyph-height': 8,
-	'glyph-width': 9
+	'glyph-width': 9,
+	'glyph-params': 'down'
 }));
 ART.Sheet.defineStyle('button.navRight', $merge(nav, {
 	'glyph-left': 10,
@@ -41,7 +44,8 @@ ART.Sheet.defineStyle('button.navRight', $merge(nav, {
 	'corner-radius-top-left': 0,
 	'corner-radius-top-right': 4,
 	'corner-radius-bottom-right': 4,
-	'corner-radius-bottom-left': 0
+	'corner-radius-bottom-left': 0,
+	'glyph-params': 'right'
 }));
 
 
@@ -55,27 +59,5 @@ ART.Sheet.defineStyle('button.navRight:active', {
 	'border-color': hsb(0, 0, 0, 0.8)
 });
 
-ART.Button.Nav = {};
-
-['left', 'right', 'up', 'down'].each(function(dir) {
-
-	var upper = dir.capitalize();
-	
-	ART.Button.Nav[upper] = new Class({
-
-		Extends: ART.Button,
-
-		options: {
-			direction: dir,
-			className: 'nav' + upper
-		},
-
-		makeGlyph: function(){
-			this.parent(this.options.direction);
-		}
-
-	});
-
-});
 
 })();
