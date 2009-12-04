@@ -182,17 +182,20 @@ ART.History = new Class({
 	},
 	
 	build: function(){
-		this.nav_back = new ART.Button.Nav.Left({
+		this.nav_back = new ART.Button({
+			className: 'navLeft',
 			parentWidget: this
 		});
 		$(this.nav_back).inject(this.element).addEvent('click', this.back.bind(this));
 
-		this.nav_next = new ART.Button.Nav.Right({
+		this.nav_next = new ART.Button({
+			className: 'navRight',
 			parentWidget: this
 		});
 		$(this.nav_next).inject(this.element).addEvent('click', this.next.bind(this));
 
-		this.location = new ART.Button.Nav.Down({
+		this.location = new ART.Button({
+			className: 'navDown',
 			parentWidget: this
 		});
 		this.location_text = new Element('div');
